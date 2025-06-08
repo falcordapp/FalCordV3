@@ -21,7 +21,7 @@ Which is why, on future commits where the db is changed in a significant way, I 
 Download and setup a postgreSQL server with the database name of your choice.
 Download the config.json from the repository and modify the entries of your choice. Look below for a guide.
 
-Run npm install and then node server.js to start Oldcord.
+Run npm install and then node server.js to start FalCord.
 
 Since V3 is hosted on my own server at home, I use cloudflared to bypass CG-NAT and have enabled cloudflare's free SSL so the SSL stuff in the earlier configuration is kinda deprecated.
 
