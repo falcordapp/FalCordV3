@@ -9,6 +9,8 @@ Official instance: https://falcord.erroroliver.lol
 - [ ] More in-app connections other than Twitch, also change this checkbox to show all the connections available.<br>
 - [ ] Modified client, like BetterDiscord possible within lander, before app load? There is some Electrion client patching & modifications (for networking, I think?), so maybe it is possible to change the code there to make it possible?<br>
 - [ ] Find older BetterDiscord clients. <br>
+- [ ] Desktop client? <br>
+- [ ] Mobile client? (more complex, need to check out how the mobile API works) <br>
 
 # Resources & External Contributors
 ziad87 (Hummus2 private source code for token generation, permissions, sessions references, and some middleware references) <br>
