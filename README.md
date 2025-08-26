@@ -16,6 +16,7 @@ Official instance: https://falcord.erroroliver.lol
 - [ ] Server acknowledges a group/DM call request and sends a system message for calling<br>
 - [ ] Users in a group/DM/server call/voice chat will be shown<br>
 - [ ] Voice support? (complex)
+- [ ] Random thing but get the help button working (support.[falcordinstancehere]/api/v2/help_center/articles.json?label_names=featured, when searched (new tab: support.[falcordinstancehere]/hc/en-us/search?utf8=%E2%9C%93&query=test&commit=Search))
 
 # Resources & External Contributors
 ziad87 (Hummus2 private source code for token generation, permissions, sessions references, and some middleware references) <br>
