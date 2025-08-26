@@ -58,7 +58,7 @@ const gateway = {
             const cookies = req.headers.cookie;
 
             if (!cookies) {
-                socket.close(4000, 'Cookies are required to use the Oldcord gateway.');
+                socket.close(4000, 'Cookies are required to use the Falcord gateway.');
 
                 return;
             }
@@ -70,7 +70,7 @@ const gateway = {
             }, {});
             
             if (!cookieStore['release_date']) {
-                socket.close(1000, 'The release_date cookie is required to establish a connection to the Oldcord gateway.');
+                socket.close(1000, 'The release_date cookie is required to establish a connection to the Falcord gateway.');
 
                 return;
             }
@@ -102,7 +102,7 @@ const gateway = {
                 s: null,
                 d: {
                     heartbeat_interval: 45 * 1000,
-                    _trace: ["oldcord-v3"]
+                    _trace: ["oldcord-v3"] // database logic?
                 }
             });
 
