@@ -2088,51 +2088,49 @@ const database = {
             }
 
             const rows = await database.runQuery(query, params);
-
-            if (rows == null || rows.length == 0) {
+            if (!rows || rows.length === 0) {
                 return [];
             }
 
             const ret = [];
-
             for (const row of rows) {
                 const message = await database.getMessageById(row.message_id);
-                
+
+                // 🔽 only run this block if caller asked for reactions
                 if (includeReactions) {
-                    const reactions = message.reactions;
-                    const fixedReactions = [];
+                    const reactions = message.reactions || [];
 
                     const reactionMap = reactions.reduce((acc, reaction) => {
+                        if (!reaction || !reaction.emoji) return acc;
+
                         const { id, name } = reaction.emoji;
                         const key = id || name;
-                    
+
                         if (!acc[key]) {
-                            acc[key] = { 
+                            acc[key] = {
                                 emoji: { id, name },
                                 count: 0,
                                 user_ids: new Set()
                             };
                         }
-                    
-                        acc[key].count++;
-                        acc[key].user_ids.add(reaction.user_id);
-                    
+
+                        if (!acc[key].user_ids.has(reaction.user_id)) {
+                            acc[key].count++;
+                            acc[key].user_ids.add(reaction.user_id);
+                        }
+
                         return acc;
                     }, {});
-          
-                    for (const key in reactionMap) {
-                        fixedReactions.push({
-                            emoji: reactionMap[key].emoji,
-                            count: reactionMap[key].count,
-                            user_ids: Array.from(reactionMap[key].user_ids),
-                            me: false
-                        });
-                    }
 
-                    message.reactions = fixedReactions;
+                    // Discord 2015–2018: only expose emoji, count, and me
+                    message.reactions = Object.values(reactionMap).map(r => ({
+                        emoji: r.emoji,
+                        count: r.count,
+                        me: r.user_ids.has(message.author_id) // swap with creator.id if you pass it in
+                    }));
                 }
 
-                if (message != null) {
+                if (message) {
                     ret.push(message);
                 }
             }
@@ -2140,7 +2138,6 @@ const database = {
             return ret;
         } catch (error) {
             logText(error, "error");
-
             return [];
         }
     },
