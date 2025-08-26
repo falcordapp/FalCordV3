@@ -7,7 +7,7 @@ Official instance: https://falcord.erroroliver.lol
 
 # Things to do:
 - [ ] More in-app connections other than Twitch, also change this checkbox to show all the connections available.<br>
-- [ ] Modified client, like BetterDiscord possible within lander, before app load? There is some Electrion client patching & modifications (for networking, I think?), so maybe it is possible to change the code there to make it possible?<br>
+- [ ] Modified client, like BetterDiscord possible within lander, before app load? There is some electron client patching & modifications (for networking, I think?), so maybe it is possible to change the code there to make it possible?<br>
 - [X] Find older BetterDiscord clients.<br>
 - [ ] Falcord Admin Dashboard
 - [ ] Desktop client? (already exists? but i'm gonna test it out soon enough)<br>
