@@ -11,6 +11,7 @@ Official instance: https://falcord.erroroliver.lol
 - [ ] Find older BetterDiscord clients.<br>
 - [ ] Desktop client?<br>
 - [ ] Mobile client? (more complex, need to check out how the mobile API works)<br>
+- [ ] Default Instance Guilds: Will place you in a Guild once you register on the instance (also make an option where it will join everyone in the instance before the setting took effect/put it in the migration code?)
 - [ ] CHANNEL_UPDATE for Voice Channels: "bitrate" and "user limit"<br>
 - [ ] Server acknowledges a group/DM call request and sends a system message for calling<br>
 - [ ] Users in a group/DM/server call/voice chat will be shown<br>
