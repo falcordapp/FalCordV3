@@ -26,7 +26,7 @@ async function clientMiddleware(req, res, next) {
         if (!cookies) {
             return res.status(400).json({
                 code: 400,
-                message: "Cookies are required to use the oldcord backend, please enable them and try again."
+                message: "Cookies are required to use the falcord backend, please enable them and try again."
             })
         }
 
