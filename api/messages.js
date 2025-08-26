@@ -64,14 +64,18 @@ router.get("/", channelPermissionsMiddleware("READ_MESSAGE_HISTORY"), async (req
                 msg.content = msg.content.replace("[YEAR]", req.client_build_date.getFullYear());
             }
 
-            if (msg.reactions) {
-                for(var reaction of msg.reactions) {
-                    reaction.me = reaction.user_ids.includes(creator.id);
-                        
-                    delete reaction.user_ids;
-                }
-            }
-        }
+        if (msg.reactions) {
+            for (var reaction of msg.reactions) {
+                let userIds = Array.isArray(reaction.user_ids) ? reaction.user_ids : [];
+                reaction.me = userIds.includes(creator.id);
+
+                // fix NaN count issues
+                reaction.count = userIds.length || 0;
+
+                delete reaction.user_ids;
+        }        
+    }
+}
 
         return res.status(200).json(messages);
     } catch (error) {
@@ -104,7 +108,7 @@ router.post("/", instanceMiddleware("VERIFIED_EMAIL_REQUIRED"), handleJsonAndMul
             });
         }
 
-        let embeds = [];  //So... discord removed the ability for users to create embeds in their messages way back in like 2020, killing the whole motive of self bots, but here at Oldcord, we don't care - just don't abuse our API.
+        let embeds = [];  //So... discord removed the ability for users to create embeds in their messages way back in like 2020, killing the whole motive of self bots, but here at Falcord, we don't care - just don't abuse our API.
 
         if (req.body.embeds) {
             for(var embed of req.body.embeds) {
