@@ -19,9 +19,17 @@ const globalUtils = {
     nonStandardPort: config.secure ? config.port != 443 : config.port != 80,
     nonStandardWsPort: config.secure ? config.ws_port != 443 : config.ws_port != 80,
     generateGatewayURL: (req) => {
-        const url = config.base_url.replace(/^http/, config.secure ? 'wss' : 'ws');
-        return url;
+        let host = req.headers['host'] || config.base_url.replace(/^https?:\/\//, '');
+        let port = "";
+
+        // Only append port if non-standard
+        if ((config.secure && config.ws_port != 443) || (!config.secure && config.ws_port != 80)) {
+            port = ":" + config.ws_port;
+        }
+
+        return `${config.secure ? 'wss' : 'ws'}://${config.gateway_url || host}${port}`;
     },
+
     unavailableGuildsStore: [],
     generateString: (length) => {
         let result = '';
