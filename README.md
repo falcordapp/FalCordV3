@@ -20,6 +20,8 @@ Official instance: https://falcord.erroroliver.lol
 - [ ] Server Widget
 - [ ] 2FA? (/api/v6/users/@me/mfa/totp/enable) {"code":"000000","secret":"???"} need to figure out what the secret means and for accounts that have 2FA, some clients will not work as 2FA was not implemented back then.
 - [ ] HypeSquad (/api/v6/hypesquad/online) {"house_id":3} and add hypesquad email in config
+- [ ] add affinities
+- [ ] store?
 - [ ] Random thing but get the help button working (support.[falcordinstancehere]/api/v2/help_center/articles.json?label_names=featured, when searched (new tab: support.[falcordinstancehere]/hc/en-us/search?utf8=%E2%9C%93&query=test&commit=Search))
 
 # Resources & External Contributors
