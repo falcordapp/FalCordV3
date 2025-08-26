@@ -2096,7 +2096,7 @@ const database = {
             for (const row of rows) {
                 const message = await database.getMessageById(row.message_id);
 
-                // 🔽 only run this block if caller asked for reactions
+                // only run this block if caller asked for reactions
                 if (includeReactions) {
                     const reactions = message.reactions || [];
 
