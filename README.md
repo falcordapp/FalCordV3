@@ -9,7 +9,8 @@ Official instance: https://falcord.erroroliver.lol
 - [ ] More in-app connections other than Twitch, also change this checkbox to show all the connections available.<br>
 - [ ] Modified client, like BetterDiscord possible within lander, before app load? There is some electron client patching & modifications (for networking, I think?), so maybe it is possible to change the code there to make it possible?<br>
 - [X] Find older BetterDiscord clients.<br>
-- [ ] Falcord Admin Dashboard
+- [ ] Falcord Admin Dashboard HTML
+- [ ] Integrate Falcord Admin Dashboard into the server
 - [ ] Desktop client? (already exists? but i'm gonna test it out soon enough)<br>
 - [ ] Mobile client? (more complex, need to check out how the mobile API works)<br>
 - [ ] Default Instance Guilds: Will place you in a Guild once you register on the instance (also make an option where it will join everyone in the instance before the setting took effect/put it in the migration code?)
