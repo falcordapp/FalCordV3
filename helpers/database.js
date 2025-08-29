@@ -3375,8 +3375,8 @@ const database = {
 
             let author = null;
 
-            if (nonce != null && nonce != 'NULL' && !Snowflake.isValid(nonce)) {
-                return null;
+            if (!nonce || nonce === 'NULL') {
+                nonce = null;
             }
 
             if (!nonce || nonce === 'NULL') {
