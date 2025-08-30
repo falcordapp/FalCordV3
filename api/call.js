@@ -19,6 +19,29 @@ router.param('messageid', async (req, res, next, messageid) => {
 // router.get("/:memberid", async (req, res) => {
 // router.get("/", async (req, res) => {
 router.get("/ring", async (req, res) => {
+            if (channel.type == 1 || channel.type == 3) // the hell is "||" and what is the channel type
+                // 1 - DM
+                // ? - Group Chat
+                // i think? idk
+        {
+                // stuff here
+        }
+        else
+        {
+                // stuff here
+        }
+
+        return res.status(204).send();
+    } catch(error) {
+        logText(error, "error");
+    
+        
+        
+        return res.status(500).json({
+          code: 500,
+          message: "Internal Server Error"
+        });
+
     try {
         const creator = req.account;
 
