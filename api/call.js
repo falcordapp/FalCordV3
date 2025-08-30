@@ -16,6 +16,7 @@ router.param('messageid', async (req, res, next, messageid) => {
     next();
 });
 
+// router.get("/:memberid", async (req, res) => {
 router.get("/", async (req, res) => {
     try {
         const creator = req.account;
