@@ -4,9 +4,7 @@ const { logText } = require('../helpers/logger');
 const { channelPermissionsMiddleware, rateLimitMiddleware, instanceMiddleware } = require('../helpers/middlewares');
 const fs = require('fs');
 const multer = require('multer');
-const Jimp = require('jimp');
 const Snowflake = require('../helpers/snowflake');
-const reactions = require('./reactions');
 const path = require('path');
 
 const upload = multer();
