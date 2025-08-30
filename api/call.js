@@ -17,7 +17,8 @@ router.param('messageid', async (req, res, next, messageid) => {
 });
 
 // router.get("/:memberid", async (req, res) => {
-router.get("/", async (req, res) => {
+// router.get("/", async (req, res) => {
+router.get("/ring", async (req, res) => {
     try {
         const creator = req.account;
 
