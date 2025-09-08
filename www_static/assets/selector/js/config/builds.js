@@ -49,4 +49,4 @@ export const builds = [
     "december_31_2018",
 ];
 
-export const defaultBuild = "october_5_2017";
+export const defaultBuild = "march_30_2017";
