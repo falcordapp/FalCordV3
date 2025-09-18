@@ -109,7 +109,7 @@ router.post("/", instanceMiddleware("VERIFIED_EMAIL_REQUIRED"), handleJsonAndMul
             });
         }
 
-        let embeds = [];  //So... discord removed the ability for users to create embeds in their messages way back in like 2020, killing the whole motive of self bots, but here at Oldcord, we don't care - just don't abuse our API.
+        let embeds = [];  //So... discord removed the ability for users to create embeds in their messages way back in like 2020, killing the whole motive of self bots, but here at Falcord, we don't care - just don't abuse our API.
 
         if (req.body.embeds) {
             for(var embed of req.body.embeds) {
