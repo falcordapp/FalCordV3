@@ -1,9 +1,10 @@
 ![Herple...](/hurple.png)
-<!-- OldCord: bring back the past -->
+<!-- FalCord: bring back the past -->
 
-# OldcordV3
+# FalcordV3
 An open-source reimplementation of the old (2015-2018) Discord backend, including an on-demand client patcher. <br>
 Contributions are highly encouraged! We'd love your help to clean and refactor the codebase!
+Official instance: https://falcord.ixchats.com
 
 # ⚠️ Important Notices
 **Database Migrations**:
@@ -11,6 +12,43 @@ Contributions are highly encouraged! We'd love your help to clean and refactor t
 
 **Configuration File**:
    - **Always ensure your config.json file matches the structure and entries in config.example.json when you pull new updates.** Instances created before November 14, 2024, must update their configuration file to the new format to function.
+
+# Things to do:
+- [ ] testing instance with new assets cdn to fix emojis (wip)
+- [ ] More in-app connections other than Twitch<br>
+> - [ ] YouTube
+> - [ ] Reddit
+> - [ ] Twitter
+> - [ ] Skype (added around 2016–2017????) <I>would fit into [Escaropen](https://escaropen.ixchats.com) quite well!</i> <!-- Removed around March–April 2020 --><br>
+<!-- github markdown be like -->
+> (is there any higher client versions that uses more in-app connections?)
+
+- [ ] Modified client, like BetterDiscord possible within lander, before app load? There is some electron client patching & modifications (for networking, I think?), so maybe it is possible to change the code there to make it possible? ~~*after new assets cdn is complete*~~<br> <!-- should i grab all win, ios and linux builds of stable, carnary, pdb, and development? -->
+- [X] Find older BetterDiscord clients.<br>
+- [ ] Falcord Admin Dashboard HTML (completed, kind of)<br>
+- [ ] Integrate Falcord Admin Dashboard into the server<br>
+- [ ] Mobile client? (more complex, need to check out how the mobile API works)<br>
+- [ ] CHANNEL_UPDATE for Voice Channels: "bitrate" and "user limit"<br>
+- [ ] Users in a group/DM/server call/voice chat will be shown (apparently added in **April 2017**, but idk, there isn't alot of info about the system message notifier)<br>
+- [ ] Server Widget
+- [ ] Server Widget Compact (needs to generate a image)
+- [ ] 2FA? (`/api/v6/users/@me/mfa/totp/enable`) `{"code":"000000","secret":"???"}` need to figure out what the secret means and for accounts that have 2FA, some clients will not work as 2FA was not implemented back then.<br>
+older clients are annoying fuck.. because the bootloader does it at the start and it the user doesnt logon until after the bootloader loads ofc<br>
+it could log in the user but in a minified state and then have only dms open on a system chat and ask for 2fa, then it could show all the chats, servers, friendships, etc (reloading in a non-locked state) once 2fa is given?<br>
+- [ ] HypeSquad (`/api/v6/hypesquad/online`) `{"house_id":3}` and add hypesquad email in config
+- [ ] add affinities (how relevant a user is/how likely to be friends with the user/interacted before alot but not friends)
+- [ ] store?
+- [ ] Random thing but get the help button working (support.[falcordinstancehere]/api/v2/help_center/articles.json?label_names=featured, when searched (new tab: support.[falcordinstancehere]/hc/en-us/search?utf8=%E2%9C%93&query=test&commit=Search))
+- [ ] nov2020 replying feature
+requires:<br>
+higher client builds to work or patched client like the modified falcord client ~~that is going to be done when the new assets cdn comes~~<br>
+compatibility for older clients.. example for a message
+> @ErrorOliver#3907: `heya, this is a message for reply, woohoo this is so amazi`...<br>
+
+this is a reply lol<br><br>
+yeah theres gotta be a a "..." for if there's lots of characters on the message the user is replying to<br>
+also ping and no ping possible with compatibility which is sweet<br>
+- [ ] self hosted email server? (not too important tho)
 
 # Project Status & Features
 
@@ -22,7 +60,7 @@ Contributions are highly encouraged! We'd love your help to clean and refactor t
 **Voice & Video**:
   - **Voice**: 🟠 Work in progress, but functional via WebRTC P2P, standard WebRTC (Browser), and UDP (Desktop Client).
       - **Known Issues**: Minor bugs like speaker indicators not showing, firefox not working, or needing to rejoin a call to hear/speak to others are being actively worked on.
-      - **Note**: WebRTC requires the "Modernize WebRTC" patch to be enabled in order to work properly. Right now, because of the media server code being integrated into Oldcord, running Oldcord behind a firewall like Cloudflare would not work well with UDP (affecting both standard WebRTC and Desktop Client) and will disconnect upon joining.
+      - **Note**: WebRTC requires the "Modernize WebRTC" patch to be enabled in order to work properly. Right now, because of the media server code being integrated into Falcord, running Falcord behind a firewall like Cloudflare would not work well with UDP (affecting both standard WebRTC and Desktop Client) and will disconnect upon joining.
   - **Video**: 🔴 Not yet supported. Our current focus is on ensuring voice chat works 100% of the time with little to no issues.
   - **Moderation Features**: 🔴Server mute and deafen are planned and actively being worked on.
 
@@ -47,7 +85,7 @@ Contributions are highly encouraged! We'd love your help to clean and refactor t
          "platform" : "twitch",
          "client_id" : "client_id",
          "client_secret" : "client_secret",
-         "redirect_uri" : "https://staging.oldcordapp.com/api/connections/twitch/callback"
+         "redirect_uri" : "https://falcord.ixchats.com.com/api/connections/twitch/callback"
     }]
     ```
   - `trusted_users`: An array of user IDs that bypass short-term rate limits. Useful for bots.
